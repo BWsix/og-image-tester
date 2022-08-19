@@ -4,7 +4,6 @@ import type {
   NextPage,
 } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 const CLHS_NEWS_PAGE = (id: string) =>
   `https://www.clhs.tyc.edu.tw/ischool/public/news_view/show.php?nid=${id}`;
@@ -12,21 +11,20 @@ const CLHS_NEWS_PAGE = (id: string) =>
 const Home: NextPage = ({
   id,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const router = useRouter();
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000";
 
-  if (typeof window !== "undefined") router.push(CLHS_NEWS_PAGE(id));
+  if (typeof window !== "undefined") location.href = CLHS_NEWS_PAGE(id);
 
   return (
     <div>
       <Head>
         <title>壢中官網公告短網址</title>
-        <meta name="description" content="壢中官網公告短網址" />
         <link rel="icon" href="/favicon.ico" />
-        <meta property="og:type" content="website"></meta>
+        <meta property="og:type" content="website" />
         <meta property="og:image" content={`${baseUrl}/api?id=${id}`} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       redirecting...
     </div>
