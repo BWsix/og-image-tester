@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "chrome-aws-lambda": "^10.1.0",
+    "marked": "^4.0.18",
     "next": "12.2.5",
+    "puppeteer-core": "^16.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.7.6",
+    "@types/puppeteer": "^5.4.6",
+    "@types/puppeteer-core": "^5.4.0",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "eslint": "8.22.0",
